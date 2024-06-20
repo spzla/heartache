@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "firehearts",
+  "version": "${version}",
+  "name": "Fire Hearts",
+  "description": "",
+  "authors": [
+    "spzla"
+  ],
+  "contact": {
+    "repo": "https://github.com/spzla/firehearts"
+  },
+  "license": "GPL-3.0",
+  "icon": "assets/firehearts/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "me.spzla.firehearts.FireHeartsClient"
+    ]
+  },
+  "mixins": [
+    "firehearts.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}

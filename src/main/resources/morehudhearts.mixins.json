@@ -1,11 +1,11 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "me.spzla.firehearts.mixin",
+  "package": "me.spzla.morehudhearts.mixin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": [
-  ],
   "client": [
+    "InGameHudMixin",
+    "InGameOverlayRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

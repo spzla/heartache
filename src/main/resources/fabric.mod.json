@@ -15,11 +15,12 @@
   "environment": "*",
   "entrypoints": {
     "client": [
-      "me.spzla.firehearts.FireHeartsClient"
+      "me.spzla.morehudhearts.MoreHudHeartsClient"
     ]
   },
+  "accessWidener": "morehudhearts.accesswidener",
   "mixins": [
-    "firehearts.mixins.json"
+    "morehudhearts.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=${loader_version}",

@@ -2,6 +2,7 @@ package me.spzla.morehudhearts.mixin;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import me.spzla.morehudhearts.CustomHeartType;
+import me.spzla.morehudhearts.SizedTexture;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
@@ -29,10 +30,12 @@ public class InGameHudMixin {
         CustomHeartType customType = CustomHeartType.fromPlayerState(this.client.player);
 
         if (type == InGameHud.HeartType.NORMAL && customType != null) {
-            Identifier texture = customType.getTexture(hardcore, half, blinking);
+            SizedTexture texture = customType.getTexture(hardcore, half, blinking);
+
+            int yOffset = 9 - texture.height;
 
             RenderSystem.enableBlend();
-            context.drawTexture(texture, x, y, 0, 0, 0, 9, 9, 9, 9);
+            context.drawTexture(texture.id, x, y + yOffset, 0, 0, 0, texture.width, texture.height, texture.width, texture.height);
             RenderSystem.disableBlend();
 
             ci.cancel();

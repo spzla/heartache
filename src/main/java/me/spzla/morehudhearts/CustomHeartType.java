@@ -4,26 +4,26 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Identifier;
 
 public enum CustomHeartType {
-    BURNING(
-            Identifier.of(MoreHudHeartsClient.MOD_ID, "textures/gui/burning_full.png"),
-            Identifier.of(MoreHudHeartsClient.MOD_ID, "textures/gui/burning_full_blinking.png"),
-            Identifier.of(MoreHudHeartsClient.MOD_ID, "textures/gui/burning_half.png"),
-            Identifier.of(MoreHudHeartsClient.MOD_ID, "textures/gui/burning_half_blinking.png"),
-            Identifier.of(MoreHudHeartsClient.MOD_ID, "textures/gui/burning_hardcore_full.png"),
-            Identifier.of(MoreHudHeartsClient.MOD_ID, "textures/gui/burning_hardcore_full_blinking.png"),
-            Identifier.of(MoreHudHeartsClient.MOD_ID, "textures/gui/burning_hardcore_half.png"),
-            Identifier.of(MoreHudHeartsClient.MOD_ID, "textures/gui/burning_hardcore_half_blinking.png"));
+    BURNING(new SizedTexture(Identifier.of(MoreHudHeartsClient.MOD_ID, "textures/gui/burning_full.png"), 9, 16),
+            new SizedTexture(Identifier.of(MoreHudHeartsClient.MOD_ID, "textures/gui/burning_full_blinking.png"), 9, 16),
+            new SizedTexture(Identifier.of(MoreHudHeartsClient.MOD_ID, "textures/gui/burning_half.png"), 9, 16),
+            new SizedTexture(Identifier.of(MoreHudHeartsClient.MOD_ID, "textures/gui/burning_half_blinking.png"), 9, 16),
+            new SizedTexture(Identifier.of(MoreHudHeartsClient.MOD_ID, "textures/gui/burning_hardcore_full.png"), 9, 9),
+            new SizedTexture(Identifier.of(MoreHudHeartsClient.MOD_ID, "textures/gui/burning_hardcore_full_blinking.png"), 9, 9),
+            new SizedTexture(Identifier.of(MoreHudHeartsClient.MOD_ID, "textures/gui/burning_hardcore_half.png"), 9, 9),
+            new SizedTexture(Identifier.of(MoreHudHeartsClient.MOD_ID, "textures/gui/burning_hardcore_half_blinking.png"), 9, 9));
 
-    private final Identifier fullTexture;
-    private final Identifier fullBlinkingTexture;
-    private final Identifier halfTexture;
-    private final Identifier halfBlinkingTexture;
-    private final Identifier hardcoreFullTexture;
-    private final Identifier hardcoreFullBlinkingTexture;
-    private final Identifier hardcoreHalfTexture;
-    private final Identifier hardcoreHalfBlinkingTexture;
+    private final SizedTexture fullTexture;
+    private final SizedTexture fullBlinkingTexture;
+    private final SizedTexture halfTexture;
+    private final SizedTexture halfBlinkingTexture;
+    private final SizedTexture hardcoreFullTexture;
+    private final SizedTexture hardcoreFullBlinkingTexture;
+    private final SizedTexture hardcoreHalfTexture;
+    private final SizedTexture hardcoreHalfBlinkingTexture;
 
-    CustomHeartType(Identifier fullTexture, Identifier fullBlinkingTexture, Identifier halfTexture, Identifier halfBlinkingTexture, Identifier hardcoreFullTexture, Identifier hardcoreFullBlinkingTexture, Identifier hardcoreHalfTexture, Identifier hardcoreHalfBlinkingTexture) {
+    CustomHeartType(SizedTexture fullTexture, SizedTexture fullBlinkingTexture, SizedTexture halfTexture, SizedTexture halfBlinkingTexture,
+                    SizedTexture hardcoreFullTexture, SizedTexture hardcoreFullBlinkingTexture, SizedTexture hardcoreHalfTexture, SizedTexture hardcoreHalfBlinkingTexture) {
         this.fullTexture = fullTexture;
         this.fullBlinkingTexture = fullBlinkingTexture;
         this.halfTexture = halfTexture;
@@ -34,7 +34,7 @@ public enum CustomHeartType {
         this.hardcoreHalfBlinkingTexture = hardcoreHalfBlinkingTexture;
     }
 
-    public Identifier getTexture(boolean hardcore, boolean half, boolean blinking) {
+    public SizedTexture getTexture(boolean hardcore, boolean half, boolean blinking) {
         if (!hardcore) {
             if (half) {
                 return blinking ? this.halfBlinkingTexture : this.halfTexture;

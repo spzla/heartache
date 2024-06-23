@@ -16,6 +16,9 @@
   "entrypoints": {
     "client": [
       "me.spzla.morehudhearts.MoreHudHeartsClient"
+    ],
+    "modmenu": [
+      "me.spzla.morehudhearts.integration.ModMenuIntegration"
     ]
   },
   "accessWidener": "morehudhearts.accesswidener",

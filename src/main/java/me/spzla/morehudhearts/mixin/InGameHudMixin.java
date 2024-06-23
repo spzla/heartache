@@ -2,13 +2,14 @@ package me.spzla.morehudhearts.mixin;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import me.spzla.morehudhearts.CustomHeartType;
+import me.spzla.morehudhearts.MoreHudHeartsClient;
 import me.spzla.morehudhearts.SizedTexture;
+import me.spzla.morehudhearts.config.ModConfig;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.hud.InGameHud;
-import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -26,6 +27,9 @@ public class InGameHudMixin {
     @Inject(method = "drawHeart", at = @At("HEAD"), cancellable = true)
     private void morehudhearts$drawCustomHeart(DrawContext context, InGameHud.HeartType type, int x, int y, boolean hardcore,
                                             boolean blinking, boolean half, CallbackInfo ci) {
+        ModConfig config = MoreHudHeartsClient.getConfig();
+        if (!config.enabled) return;
+
         assert this.client.player != null;
         CustomHeartType customType = CustomHeartType.fromPlayerState(this.client.player);
 
@@ -35,7 +39,7 @@ public class InGameHudMixin {
             int yOffset = 9 - texture.height;
 
             RenderSystem.enableBlend();
-            context.drawTexture(texture.id, x, y + yOffset, 0, 0, 0, texture.width, texture.height, texture.width, texture.height);
+            context.drawGuiTexture(texture.id, x, y + yOffset, texture.width, texture.height);
             RenderSystem.disableBlend();
 
             ci.cancel();

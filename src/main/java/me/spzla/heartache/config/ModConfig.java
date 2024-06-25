@@ -1,4 +1,4 @@
-package me.spzla.morehudhearts.config;
+package me.spzla.heartache.config;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -8,7 +8,7 @@ import dev.isxander.yacl3.api.Option;
 import dev.isxander.yacl3.api.OptionDescription;
 import dev.isxander.yacl3.api.YetAnotherConfigLib;
 import dev.isxander.yacl3.api.controller.TickBoxControllerBuilder;
-import me.spzla.morehudhearts.MoreHudHeartsClient;
+import me.spzla.heartache.HeartacheClient;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
@@ -20,7 +20,7 @@ import java.nio.file.Path;
 public class ModConfig {
     public static final ModConfig INSTANCE = new ModConfig();
 
-    public final Path configFile = FabricLoader.getInstance().getConfigDir().resolve(MoreHudHeartsClient.MOD_ID + ".json");
+    public final Path configFile = FabricLoader.getInstance().getConfigDir().resolve(HeartacheClient.MOD_ID + ".json");
     private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     public boolean enabled = true;
@@ -59,12 +59,12 @@ public class ModConfig {
 
     public Screen makeScreen(Screen parent) {
         return YetAnotherConfigLib.createBuilder()
-                .title(Text.translatable("morehudhearts.title"))
+                .title(Text.translatable("heartache.title"))
                 .category(ConfigCategory.createBuilder()
-                        .name(Text.translatable("morehudhearts.title"))
+                        .name(Text.translatable("heartache.title"))
                         .option(Option.<Boolean>createBuilder()
-                                .name(Text.translatable("morehudhearts.option.enabled"))
-                                .description(OptionDescription.of(Text.translatable("morehudhearts.option.enabled.description")))
+                                .name(Text.translatable("heartache.option.enabled"))
+                                .description(OptionDescription.of(Text.translatable("heartache.option.enabled.description")))
                                 .binding(
                                         true,
                                         () -> enabled,
@@ -73,8 +73,8 @@ public class ModConfig {
                                 .controller(TickBoxControllerBuilder::create)
                                 .build())
                         .option(Option.<Boolean>createBuilder()
-                                .name(Text.translatable("morehudhearts.option.fireoverlayenabled"))
-                                .description(OptionDescription.of(Text.translatable("morehudhearts.option.fireoverlayenabled.description")))
+                                .name(Text.translatable("heartache.option.fireoverlayenabled"))
+                                .description(OptionDescription.of(Text.translatable("heartache.option.fireoverlayenabled.description")))
                                 .binding(
                                         true,
                                         () -> fireOverlayEnabled,

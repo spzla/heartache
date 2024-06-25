@@ -1,4 +1,4 @@
-package me.spzla.morehudhearts;
+package me.spzla.heartache;
 
 import net.minecraft.util.Identifier;
 

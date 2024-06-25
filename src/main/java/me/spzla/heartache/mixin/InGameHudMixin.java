@@ -1,10 +1,10 @@
-package me.spzla.morehudhearts.mixin;
+package me.spzla.heartache.mixin;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import me.spzla.morehudhearts.CustomHeartType;
-import me.spzla.morehudhearts.MoreHudHeartsClient;
-import me.spzla.morehudhearts.SizedTexture;
-import me.spzla.morehudhearts.config.ModConfig;
+import me.spzla.heartache.CustomHeartType;
+import me.spzla.heartache.HeartacheClient;
+import me.spzla.heartache.SizedTexture;
+import me.spzla.heartache.config.ModConfig;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
@@ -25,9 +25,9 @@ public class InGameHudMixin {
     private MinecraftClient client;
 
     @Inject(method = "drawHeart", at = @At("HEAD"), cancellable = true)
-    private void morehudhearts$drawCustomHeart(DrawContext context, InGameHud.HeartType type, int x, int y, boolean hardcore,
+    private void heartache$drawCustomHeart(DrawContext context, InGameHud.HeartType type, int x, int y, boolean hardcore,
                                             boolean blinking, boolean half, CallbackInfo ci) {
-        ModConfig config = MoreHudHeartsClient.getConfig();
+        ModConfig config = HeartacheClient.getConfig();
         if (!config.enabled) return;
 
         assert this.client.player != null;

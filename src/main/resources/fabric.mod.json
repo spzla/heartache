@@ -1,29 +1,29 @@
 {
   "schemaVersion": 1,
-  "id": "firehearts",
+  "id": "heartache",
   "version": "${version}",
-  "name": "Fire Hearts",
+  "name": "Heartache",
   "description": "",
   "authors": [
     "spzla"
   ],
   "contact": {
-    "repo": "https://github.com/spzla/firehearts"
+    "repo": "https://github.com/spzla/heartache"
   },
   "license": "GPL-3.0",
-  "icon": "assets/firehearts/icon.png",
+  "icon": "assets/heartache/icon.png",
   "environment": "*",
   "entrypoints": {
     "client": [
-      "me.spzla.morehudhearts.MoreHudHeartsClient"
+      "me.spzla.heartache.HeartacheClient"
     ],
     "modmenu": [
-      "me.spzla.morehudhearts.integration.ModMenuIntegration"
+      "me.spzla.heartache.integration.ModMenuIntegration"
     ]
   },
-  "accessWidener": "morehudhearts.accesswidener",
+  "accessWidener": "heartache.accesswidener",
   "mixins": [
-    "morehudhearts.mixins.json"
+    "heartache.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=${loader_version}",

@@ -1,7 +1,7 @@
-package me.spzla.morehudhearts.mixin;
+package me.spzla.heartache.mixin;
 
-import me.spzla.morehudhearts.MoreHudHeartsClient;
-import me.spzla.morehudhearts.config.ModConfig;
+import me.spzla.heartache.HeartacheClient;
+import me.spzla.heartache.config.ModConfig;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
@@ -16,8 +16,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(InGameOverlayRenderer.class)
 public class InGameOverlayRendererMixin {
     @Inject(method = "renderFireOverlay", at = @At("HEAD"), cancellable = true)
-    private static void morehudhearts$renderFireOverlay(MinecraftClient client, MatrixStack matrices, CallbackInfo ci) {
-        ModConfig config = MoreHudHeartsClient.getConfig();
+    private static void heartache$renderFireOverlay(MinecraftClient client, MatrixStack matrices, CallbackInfo ci) {
+        ModConfig config = HeartacheClient.getConfig();
 
         if (!config.enabled || config.fireOverlayEnabled) return;
 

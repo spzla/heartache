@@ -1,12 +1,12 @@
-package me.spzla.morehudhearts.integration;
+package me.spzla.heartache.integration;
 
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
-import me.spzla.morehudhearts.MoreHudHeartsClient;
+import me.spzla.heartache.HeartacheClient;
 
 public class ModMenuIntegration implements ModMenuApi {
     @Override
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
-        return parent -> MoreHudHeartsClient.getConfig().makeScreen(parent);
+        return parent -> HeartacheClient.getConfig().makeScreen(parent);
     }
 }

@@ -1,5 +1,9 @@
 {
-  "heartache.title": "Mod",
+  "heartache.general.title": "General",
   "heartache.option.enabled": "Enabled",
-  "heartache.option.enabled.description": "Completely enable or disable the mod."
+  "heartache.option.enabled.description": "Completely enable or disable the mod.",
+
+  "heartache.hearttypes.title": "Hearts",
+  "heartache.option.burningheart.enabled": "Burning Heart",
+  "heartache.option.glowingheart.enabled": "Glowing Heart"
 }

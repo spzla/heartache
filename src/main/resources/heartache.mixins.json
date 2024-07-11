@@ -4,8 +4,7 @@
   "package": "me.spzla.heartache.mixin",
   "compatibilityLevel": "JAVA_21",
   "client": [
-    "InGameHudMixin",
-    "InGameOverlayRendererMixin"
+    "InGameHudMixin"
   ],
   "injectors": {
     "defaultRequire": 1

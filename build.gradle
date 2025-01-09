@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.6-SNAPSHOT'
+    id 'fabric-loom' version '1.9-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -12,8 +12,8 @@ base {
 
 repositories {
     maven {
-        name "Xander Maven"
-        url "https://maven.isxander.dev/releases"
+        name = "Xander Maven"
+        url = "https://maven.isxander.dev/releases"
     }
 
     maven {

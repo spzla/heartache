@@ -10,6 +10,7 @@ import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.hud.InGameHud;
+import net.minecraft.client.render.RenderLayer;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -39,7 +40,7 @@ public class InGameHudMixin {
             int yOffset = 9 - texture.height;
 
             RenderSystem.enableBlend();
-            context.drawGuiTexture(texture.id, x, y + yOffset, texture.width, texture.height);
+            context.drawGuiTexture(RenderLayer::getGuiTextured, texture.id, x, y + yOffset, texture.width, texture.height);
             RenderSystem.disableBlend();
 
             ci.cancel();
